@@ -1,6 +1,6 @@
 <?php
 // add Google app config params
-include 'gconfig.php';
+include 'config/gconfig.php';
 
 // ####################################################
 // Step 2: When Google redirects the user back here, 

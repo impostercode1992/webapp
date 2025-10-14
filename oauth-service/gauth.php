@@ -1,6 +1,9 @@
 <?php
 // add Google app config params
-include 'gconfig.php';
+include 'config/gconfig.php';
+session_start();
+$_SESSION['site'] = $_GET['site'];
+$_SESSION['returnPage'] = $_GET['page'];
 
 // Start a session so we have session id to make sure that the redicect is instantiated by this script
 $sessionId = '123';

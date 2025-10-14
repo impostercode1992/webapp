@@ -1,6 +1,6 @@
 <?php
 
-include '../config/google-config.php';
+include '../config/gconfig.php';
 include '../lib/google-lib.php';
 
 if(!isset($_GET['code'])) { 
