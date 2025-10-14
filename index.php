@@ -2,7 +2,7 @@
       <script src="script.js"></script>
       <script>
         function receiveUserSignedInData(userData) {
-          document.querySelector("#myAccount").innerHTML = userData.email + ' (<a href="sign-out.php?site=siteone&page=index.php">log-out</a>)';
+          document.querySelector("#myAccount").innerHTML = userData.email + ' (<a href="sign-out.php?site=norsats&page=index.php">log-out</a>)';
 
           userDataStringifyed = JSON.stringify(userData);
           setCookie('userData', userDataStringifyed, 5);
@@ -14,12 +14,13 @@
           var userDataString = getCookie('userData');
           if(userDataString !== null) {
             userData = JSON.parse(userDataString);
-            document.querySelector("#myAccount").innerHTML = userData.email + ' (<a href="sign-out.php?site=siteone&page=index.php">log-out</a>)';
+            document.querySelector("#myAccount").innerHTML = userData.email + ' (<a href="sign-out.php?site=norsats&page=index.php">log-out</a>)';
           }
         }        
       </script>
     </head>
-    <body onload="initOnLoad()">      
+    <body onload="initOnLoad()">  
+    <div id="myAccount"><a href="https://www.norsats.my/oauth-service/gauth.php?site=norsats&page=index.php">login</a></div>    
 <?php // include("wc/navbar.html");?>
 
         </div>
