@@ -65,16 +65,23 @@ if(isset($_GET['code'])) {
   echo '<pre>';print_r($userInfo);die('</pre>');
   */
 
-  $params = array(
-    'email'       => $IDToken['email'],
-    'user_name'   => $IDToken['name'],
-    'given_name'  => $IDToken['given_name'],
-    'family_name'  => $IDToken['family_name']
-  );
+$userData = exchangeCodeForJWToken($_GET['code'], $tokenURL, $googleClientID, $googleClientSecret, $redirectURL);
 
+
+// prepare parameters to pass back to the main app
+$params = array(
+  'email'       => $userData['email'],
+  'name'        => $userData['name'],
+  'given_name'  => $userData['given_name'],
+  'family_name' => $userData['family_name'],
+  'returnPage'  => $returnPage
+);
+
+$returnUrl = $baseUrl . $returnPage;
+
+if($authMethod === "redirect") {
   // Redirect the user to the initial app passing user data as Query String parameters so the front end could use them.
-  header('Location: ' . $initialAppURL . '?' . http_build_query($params));
-}
-else {
-  echo 'Bad response. Missing `code` GET response';
+  header('Location: ' . $returnUrl . '?' . http_build_query($params));
+} else if($authMethod === "popupRedirect") {
+  include '../sign-in-popup.php';
 }
