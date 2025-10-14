@@ -26,5 +26,5 @@ if($authMethod === "Redirect") {
   // Redirect the user to the initial app passing user data as Query String parameters so the front end could use them.
   header('Location: ' . $returnUrl . '?' . http_build_query($params));
 } else if($authMethod === "popupRedirect") {
-  include '../sign-in-popup.php';
+  header('Location: ' . $returnUrl . '?' . http_build_query($params));
 }
