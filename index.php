@@ -23,7 +23,6 @@
         <div id="myAccount">
                         <div class="signInGoogleWrapper">
                           <a href="https://www.norsats.my/oauth-service/sign-in.php?site=sitetwo&page=index.php">kkk</a>
-"
                         <span>Continue with Google</span>
 
             </div>
