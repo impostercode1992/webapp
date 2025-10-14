@@ -4,7 +4,7 @@
   },
   "sites": {
     "norsats": {
-      "authenticationMethod": "popupRedirect",
+      "authenticationMethod": "Redirect",
       "baseUrl": "https://www.norsats.my/"
     }       
   }
