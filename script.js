@@ -20,3 +20,23 @@ function getCookie(name) {
 function eraseCookie(name) {   
   document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+function showModalPopUp()    
+{
+  popUpObj=window.open(
+    "https://public.toni-develops.com/examples/oauth/oauth-service/sign-in.php?site=sitetwo&page=index.php",
+    "ModalPopUp",
+    "toolbar=no," +
+    "scrollbars=no," +
+    "location=no," +
+    "statusbar=no," +
+    "menubar=no," +
+    "resizable=0," +
+    "width=500," +
+    "height=640," +
+    "left = 480," +
+    "top=300"
+  );
+
+  popUpObj.focus();
+}   
