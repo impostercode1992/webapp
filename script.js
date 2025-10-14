@@ -24,7 +24,7 @@ function eraseCookie(name) {
 function showModalPopUp()    
 {
   popUpObj=window.open(
-    "https://public.toni-develops.com/examples/oauth/oauth-service/sign-in.php?site=sitetwo&page=index.php",
+    "https://www.norsats.my/oauth-service/sign-in.php?site=norsats&page=index.php",
     "ModalPopUp",
     "toolbar=no," +
     "scrollbars=no," +
