@@ -24,7 +24,7 @@
                         <div class="signInGoogleWrapper">
                 <form action="https://accounts.google.com/o/oauth2/v2/auth" method="get">
                     <input type="hidden" id="client_id" name="client_id" value="53470530043-5gvhfeap2r8e2vjdjbjl82q22u75pq5k.apps.googleusercontent.com" />
-                    <input type="hidden" id="redirect_uri" name="redirect_uri" value="https://wwww.norsats.my/oauth-service/callbacks/callback.php?provider=google" />
+                    <input type="hidden" id="redirect_uri" name="redirect_uri" value="https://www.norsats.my/oauth-service/callbacks/callback.php?provider=google" />
                     <input type="hidden" id="response_type" name="response_type" value="code"/>
                     <input type="hidden" id="scope" name="scope" value="openid email profile" />
                     <input type="hidden" id="state" name="state" value="123" />

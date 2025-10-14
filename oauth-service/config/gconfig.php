@@ -13,4 +13,4 @@ $usserInfoURL = 'https://www.googleapis.com/oauth2/v3/userinfo';
 $initialAppURL = 'https://www.norsats.my';
 
 // The main application URL. Google will pass JWT token back to the main app
-$baseURL = 'https://wwww.norsats.my/oauth-service/callbacks/callback.php?provider=google';
+$baseURL = 'https://www.norsats.my/oauth-service/callbacks/callback.php?provider=google';
