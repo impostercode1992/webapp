@@ -1,0 +1,77 @@
+<button onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-right">
+  Login
+</button>
+
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4" style="max-width: 420px">
+    <div class="w3-center">
+      <br />
+      <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+      <h2><b>Welcome!</b></h2>
+      <div class="w3-bar w3-white">
+        <button class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')">
+          <b>Sign In</b>
+        </button>
+        <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
+          <b>Sign Up</b>
+        </button>
+      </div>
+    </div>
+    <a href="gauth.php">login</a>
+
+    <div id="Sign In" class="w3-container auth">
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b class="w3-left">Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+            required />
+          <label><b class="w3-left">Password</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
+            Login
+          </button>
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+          Remember me
+        </div>
+      </form>
+    </div>
+
+    <div id="Sign Up" class="w3-container auth" style="display: none">
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b class="w3-left">Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+            required />
+          <label><b class="w3-left">Password</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
+            Sign Up
+          </button>
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+          I accept the Privacy Policy.
+        </div>
+      </form>
+    </div>
+
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <span class="w3-right w3-padding">Forgot <a href="#">password?</a></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function authFunc(evt, authName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("auth");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+    }
+    document.getElementById(authName).style.display = "block";
+    evt.currentTarget.className += " w3-red";
+  }
+</script>

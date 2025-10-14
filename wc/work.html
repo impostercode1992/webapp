@@ -1,0 +1,31 @@
+<div class="w3-container w3-center w3-row-padding-64" id="work">
+  <h1>Character Counter</h1>
+  <input class="w3-input" id="textInput" onkeyup="countCharacters()"></input>
+  <p>Characters: <span id="charCount">0</span></p>
+</div>
+
+
+
+<script>
+
+  function countCharacters() {
+    const textarea = document.getElementById("textInput");
+    const charCountSpan = document.getElementById("charCount");
+    const maxLength = 200; // Define your desired maximum length
+
+    const currentLength = textarea.value.length;
+    const charactersLeft = maxLength - currentLength;
+
+    charCountSpan.textContent = currentLength;
+
+    // Optional: Add styling based on character count
+    if (currentLength > 180) {
+      charCountSpan.style.color = "red";
+    } else {
+      charCountSpan.style.color = "black";
+    }
+  }
+
+  // Initialize the count on page load
+  window.onload = countCharacters;
+</script>
