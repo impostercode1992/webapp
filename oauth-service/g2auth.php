@@ -16,6 +16,7 @@ if(isset($_GET['code'])) {
     die('missing state!');
   }
   
+function exchangeCodeForJWToken($code, $tokenURL, $googleClientID, $googleClientSecret, $redirectURL) {
   // Exchange the auth code for a token
   $ch = curl_init($tokenURL);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -23,9 +24,10 @@ if(isset($_GET['code'])) {
     'grant_type' => 'authorization_code',
     'client_id' => $googleClientID,
     'client_secret' => $googleClientSecret,
-    'redirect_uri' => $baseURL,
-    'code' => $_GET['code']
-  ]));
+    'redirect_uri' => $redirectURL,
+    'code' => $code
+  ]));  
+
 
   $response = curl_exec($ch);
 
