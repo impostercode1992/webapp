@@ -19,8 +19,10 @@
         }        
       </script>
     </head>
-    <body onload="initOnLoad()">  
-    <div id="myAccount"><a href="https://www.norsats.my/oauth-service/gauth.php?site=norsats&page=index.php">login</a></div>    
+    <body onload="initOnLoad()">
+        <div id="myAccount">
+          <a href="#" onclick="showModalPopUp()">Log-In</a>
+        </div>     
 <?php // include("wc/navbar.html");?>
 
         </div>
