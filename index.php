@@ -1,6 +1,4 @@
-<html>
-    <head>
-      <link rel="stylesheet" href="styles.css">
+<?php include("wc/header.html");?>
       <script src="script.js"></script>
       <script>
         function receiveUserSignedInData(userData) {
@@ -25,8 +23,8 @@
 <?php // include("wc/navbar.html");?>
 
         </div>
-        <div id="myAccount">
-          <a href="#" onclick="showModalPopUp()">Log-In</a>
-        </div>        
+
+          <?php include("wc/login.html");?>
+      
       </header>
 <?php include("wc/footer.html");?>

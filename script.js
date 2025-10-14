@@ -21,26 +21,3 @@ function eraseCookie(name) {
   document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-
-// Show popup
-var popUpObj;
-
-function showModalPopUp()    
-{
-  popUpObj=window.open(
-    "https://www.norsats.my/oauth-service/sign-in.php?site=norsats&page=index.php",
-    "ModalPopUp",
-    "toolbar=no," +
-    "scrollbars=no," +
-    "location=no," +
-    "statusbar=no," +
-    "menubar=no," +
-    "resizable=0," +
-    "width=500," +
-    "height=640," +
-    "left = 480," +
-    "top=300"
-  );
-
-  popUpObj.focus();
-}   
