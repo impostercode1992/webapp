@@ -9,7 +9,7 @@ include("wc/navbar.html");?>
     
     <div class="g_id_signin"></div>
 
-    <div id="profile-info" style="display: none;">
+    <div id="profile-info">
         <h2>Welcome!</h2>
         <p>Name: <span id="profile-name"></span></p>
         <p>Email: <span id="profile-email"></span></p>
