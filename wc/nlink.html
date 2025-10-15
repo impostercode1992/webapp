@@ -21,7 +21,12 @@
                 data-shape="rectangular" data-logo_alignment="left">
         </div>
         <a href="#" onclick="signOut();">Sign out</a>
-        <p id="profile-name">matchme!</p>
+        <div id="user-profile">
+                <img id="profile-image" alt="Profile picture">
+                <h2 id="profile-name"></h2>
+                <p id="profile-email"></p>
+        </div>
+
 
         <script>
                 function handleCredentialResponse(response) {
