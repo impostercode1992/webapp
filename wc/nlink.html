@@ -21,10 +21,9 @@
                 data-shape="rectangular" data-logo_alignment="left">
         </div>
         <a href="#" onclick="signOut();">Sign out</a>
-        <div onload="onSignIn()" id="user-profile">
-                <img id="profile-image">
-                <h2 id="profile-name"></h2>
-                <p id="profile-email"></p>
+        <div id="user-profile">
+                <h2 id="profile-name">metch</h2>
+                <p id="profile-email">sodapop</p>
         </div>
 
 
@@ -87,6 +86,19 @@
                         auth2.signOut().then(function () {
                                 console.log('User signed out.');
                         });
+                }
+        </script>
+        <div id="myElement"></div>
+
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                        // This function will execute once the HTML is fully loaded
+                        console.log('DOM fully loaded and parsed');
+                        document.getElementById('myElement').innerText = 'Initialized content!';
+                });
+
+                function myInitFunction() {
+                        console.log('Another init function called!');
                 }
         </script>
 
