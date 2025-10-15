@@ -21,7 +21,7 @@
                 data-shape="rectangular" data-logo_alignment="left">
         </div>
         <a href="#" onclick="signOut();">Sign out</a>
-        <p onload="auth2.isSignedIn.get()" id="profile-name">matchme!</p>
+        <p id="profile-name">matchme!</p>
 
         <script>
                 function handleCredentialResponse(response) {
@@ -47,15 +47,34 @@
                         return JSON.parse(jsonPayload);
                 }
 
-                if (auth2.isSignedIn.get()) {
-                        var profile = auth2.currentUser.get().getBasicProfile();
-                        console.log('ID: ' + profile.getId());
-                        console.log('Full Name: ' + profile.getName());
-                        console.log('Given Name: ' + profile.getGivenName());
-                        console.log('Family Name: ' + profile.getFamilyName());
-                        console.log('Image URL: ' + profile.getImageUrl());
-                        console.log('Email: ' + profile.getEmail());
-                        document.getElementById('profile-name').innerText = responsePayload.name;
+                // This function runs after a user successfully signs in
+                function onSignIn(googleUser) {
+                        // Check if a user is signed in
+                        if (auth2.isSignedIn.get()) {
+                                // Get the user's BasicProfile object
+                                var profile = googleUser.getBasicProfile();
+
+                                // Call the methods to get the user's data
+                                var userId = profile.getId();
+                                var fullName = profile.getName();
+                                var givenName = profile.getGivenName();
+                                var familyName = profile.getFamilyName();
+                                var imageUrl = profile.getImageUrl();
+                                var email = profile.getEmail();
+
+                                // Log the information to the console
+                                console.log('ID: ' + userId);
+                                console.log('Full Name: ' + fullName);
+                                console.log('Given Name: ' + givenName);
+                                console.log('Family Name: ' + familyName);
+                                console.log('Image URL: ' + imageUrl);
+                                console.log('Email: ' + email);
+
+                                // Update your webpage with the user's information
+                                document.getElementById('profile-name').textContent = fullName;
+                                document.getElementById('profile-email').textContent = email;
+                                document.getElementById('profile-image').src = imageUrl;
+                        }
                 }
 
                 function signOut() {
