@@ -21,7 +21,7 @@
                 data-shape="rectangular" data-logo_alignment="left">
         </div>
         <a href="#" onclick="signOut();">Sign out</a>
-        <p id="profile-name">matchme!</p>
+        <p onload="auth2.isSignedIn.get()" id="profile-name">matchme!</p>
 
         <script>
                 function handleCredentialResponse(response) {
@@ -33,7 +33,6 @@
                         console.log('Family Name: ' + responsePayload.family_name);
                         console.log("Image URL: " + responsePayload.picture);
                         console.log("Email: " + responsePayload.email);
-                        document.getElementById('profile-name').innerText = responsePayload.name;
 
                         // You would typically send this credential to your backend for verification
                         // and user session management.
