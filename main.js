@@ -14,7 +14,7 @@ function handleCredentialResponse(response) {
     document.getElementById("profile-picture").src = userProfile.picture;
     
     // Hide the button and show the profile info
-    document.querySelector(".g_id_signin").style.display = "none";
+    document.querySelector(".g_id_signin").style.display = "show";
     document.getElementById("profile-info").style.display = "block";
 
     // You should send the ID token to your backend for verification
@@ -35,6 +35,6 @@ function decodeJwt(token) {
 function signOut() {
     google.accounts.id.disableAutoSelect();
     document.querySelector(".g_id_signin").style.display = "block";
-    document.getElementById("profile-info").style.display = "none";
+    document.getElementById("profile-info").style.display = "show";
     console.log("User signed out.");
 }
