@@ -1,34 +1,4 @@
 <style>
-        body {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                margin-top: 50px;
-        }
-
-        .container {
-                max-width: 400px;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-card {
-                display: none;
-                margin-top: 20px;
-                text-align: left;
-        }
-
-        .profile-card img {
-                border-radius: 50%;
-                margin-right: 15px;
-        }
-
-        .profile-card p {
-                margin: 5px 0;
-        }
-
         .hide {
                 display: none;
         }
@@ -103,8 +73,8 @@
                 google.accounts.id.disableAutoSelect(); // Prevents One Tap from re-displaying immediately
 
                 // Reset the UI
-                document.querySelector(".g_id_signin").style.display = "block";
-                document.getElementById("profile-container").style.display = "none";
+                document.querySelector(".g_id_signin").style.display = "hide";
+                document.getElementById("profile-container").style.display = "show";
         }
 
 </script>
