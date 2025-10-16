@@ -48,8 +48,8 @@
                 document.getElementById("profile-pic").src = responsePayload.picture;
 
                 // Hide the sign-in button and show the profile card
-                document.querySelector(".g_id_signin").style.display = "show";
-                document.getElementById("profile-container").style.display = "hide";
+                document.querySelector(".g_id_signin").style.display = "none";
+                document.getElementById("profile-container").style.display = "block";
         }
 
         // Helper function to decode the JWT token
@@ -73,8 +73,8 @@
                 google.accounts.id.disableAutoSelect(); // Prevents One Tap from re-displaying immediately
 
                 // Reset the UI
-                document.querySelector(".g_id_signin").style.display = "hide";
-                document.getElementById("profile-container").style.display = "show";
+                document.querySelector(".g_id_signin").style.display = "block";
+                document.getElementById("profile-container").style.display = "none";
         }
 
 </script>
