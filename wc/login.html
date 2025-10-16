@@ -1,10 +1,7 @@
-<button onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-right">
-  Login
-</button>
-<button onclick="signOut().style.display='none'" class="w3-bar-item w3-button w3-right">
-  Log Out
-</button>
-
+<div class="w3-bar-item w3-button w3-right">
+  <button onclick="document.getElementById('id01').style.display='block'" id="authide">Login</button>
+  <button onclick="signOut()" id="authComp" class="w3-hide">Log Out</button>
+</div>
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-card-4" style="max-width: 420px">
     <div class="w3-center">
@@ -29,7 +26,7 @@
         </button>
       </div>
     </div>
-    <div id="Sign In" class="w3-container auth" style="display: block">
+    <div id="Sign In" class="w3-container form" style="display: block">
       <form class="w3-container" action="/action_page.php">
         <div class="w3-section">
           <label><b class="w3-left">Username</b></label>
@@ -46,7 +43,7 @@
       </form>
     </div>
 
-    <div id="Sign Up" class="w3-container auth" style="display: none">
+    <div id="Sign Up" class="w3-container form" style="display: none">
       <form class="w3-container" action="/action_page.php">
         <div class="w3-section">
           <label><b class="w3-left">Username</b></label>
@@ -74,7 +71,7 @@
 <script>
   function authFunc(evt, authName) {
     var i, x, tablinks;
-    x = document.getElementsByClassName("auth");
+    x = document.getElementsByClassName("form");
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
     }
@@ -104,6 +101,7 @@
 
     // Hide the sign-in button and show the profile card
     document.getElementById('id01').style.display = 'none';
+    document.getElementById('authide').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
     document.getElementById('authComp').style.display = 'block';
   }
@@ -125,6 +123,7 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
+    document.getElementById('authide').style.display = 'block';
     document.getElementById('authComp').style.display = 'none';
   }
 </script>
