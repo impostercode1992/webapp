@@ -14,7 +14,7 @@
           data-callback="handleCredentialResponse" data-auto_prompt="false">
         </div>
         <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with"
-          data-shape="rectangular" data-logo_alignment="left">
+          data-shape="rectangular" data-logo_alignment="center">
         </div>
       </div>
       <div class="w3-bar w3-white">
@@ -100,6 +100,7 @@
     document.getElementById('profile-pic').src = responsePayload.picture;
 
     // Hide the sign-in button and show the profile card
+    document.getElementById('id01').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
     document.getElementById('profile-container').style.display = 'block';
   }
