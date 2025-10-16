@@ -25,6 +25,7 @@
 
 </div>
 
+
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <script>
@@ -40,27 +41,22 @@
                 console.log("Email: " + responsePayload.email);
 
                 // Display the user profile
-                document.getElementById("profile-name").innerText = responsePayload.name;
-                document.getElementById("profile-email").innerText = responsePayload.email;
-                document.getElementById("profile-pic").src = responsePayload.picture;
+                document.getElementById('profile-name').innerText = responsePayload.name;
+                document.getElementById('profile-email').innerText = responsePayload.email;
+                document.getElementById('profile-pic').src = responsePayload.picture;
 
                 // Hide the sign-in button and show the profile card
-                document.querySelector(".g_id_signin").style.display = "none";
-                document.getElementById("profile-container").style.display = "block";
+                document.querySelector('.g_id_signin').style.display = 'none';
+                document.getElementById('profile-container').style.display = 'block';
         }
 
         // Helper function to decode the JWT token
         function decodeJwtResponse(token) {
-                let base64Url = token.split(".")[1];
-                let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-                let jsonPayload = decodeURIComponent(
-                        atob(base64)
-                                .split("")
-                                .map(function (c) {
-                                        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-                                })
-                                .join("")
-                );
+                let base64Url = token.split('.')[1];
+                let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
                 return JSON.parse(jsonPayload);
         }
 
@@ -70,8 +66,7 @@
                 google.accounts.id.disableAutoSelect(); // Prevents One Tap from re-displaying immediately
 
                 // Reset the UI
-                document.querySelector(".g_id_signin").style.display = "block";
-                document.getElementById("profile-container").style.display = "none";
+                document.querySelector('.g_id_signin').style.display = 'block';
+                document.getElementById('profile-container').style.display = 'none';
         }
-
 </script>
