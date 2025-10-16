@@ -1,70 +1,15 @@
 <div class="w3-bar-item w3-button w3-right">
-  <button onclick="document.getElementById('id01').style.display='block'" id="authide">Login</button>
-  <button onclick="signOut()" id="authComp" style="display: none">Log Out</button>
+  <button onclick="document.getElementById('authModal').style.display='block'">Account</button>
 </div>
-<div id="id01" class="w3-modal">
+<div id="authModal" class="w3-modal">
   <div class="w3-modal-content w3-card-4" style="max-width: 420px">
-    <div class="w3-center">
-      <br />
-      <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-      <h2><b>Welcome!</b></h2>
-      <div class="w3-container w3-margin">
-        <div id="g_id_onload" data-client_id="53470530043-5gvhfeap2r8e2vjdjbjl82q22u75pq5k.apps.googleusercontent.com"
-          data-callback="handleCredentialResponse" data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with"
-          data-shape="rectangular" data-logo_alignment="center">
-        </div>
-      </div>
-      <div class="w3-bar w3-white">
-        <button class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')">
-          <b>Sign In</b>
-        </button>
-        <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
-          <b>Sign Up</b>
-        </button>
-      </div>
-    </div>
-    <div id="Sign In" class="w3-container form" style="display: block">
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b class="w3-left">Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
-            required />
-          <label><b class="w3-left">Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-            Login
-          </button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-          Remember me
-        </div>
-      </form>
-    </div>
-
-    <div id="Sign Up" class="w3-container form" style="display: none">
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b class="w3-left">Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
-            required />
-          <label><b class="w3-left">Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-            Sign Up
-          </button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-          I accept the Privacy Policy.
-        </div>
-      </form>
-    </div>
-
-    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-      <span class="w3-right w3-padding">Forgot <a href="#">password?</a></span>
-    </div>
+    <span onclick="document.getElementById('msi').style.display='none'"
+      class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+    <?php include "nlink.html";?>
   </div>
 </div>
+
+
 
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -100,10 +45,10 @@
     document.getElementById('profile-pic').src = responsePayload.picture;
 
     // Hide the sign-in button and show the profile card
-    document.getElementById('id01').style.display = 'none';
-    document.getElementById('authide').style.display = 'none';
+    document.getElementById('authModal').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
-    document.getElementById('authComp').style.display = 'block';
+    document.getElementById('authShow').style.display = 'block';
+    document.getElementById('authHide').style.display = 'none';
   }
 
   // Helper function to decode the JWT token
@@ -123,7 +68,7 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
-    document.getElementById('authide').style.display = 'block';
-    document.getElementById('authComp').style.display = 'none';
+    document.getElementById('authHide').style.display = 'block';
+    document.getElementById('authShow').style.display = 'none';
   }
 </script>
