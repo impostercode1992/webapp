@@ -18,49 +18,56 @@
         </button>
       </div>
     </div>
-    <div id="myAccount"><a href="https://www.norsats.my/oauth-service/gauth.php?site=norsats&page=index.php">login</a>
+    <div id="g_id_onload" data-client_id="53470530043-5gvhfeap2r8e2vjdjbjl82q22u75pq5k.apps.googleusercontent.com"
+      data-callback="handleCredentialResponse" data-auto_prompt="false">
     </div>
-
-
-    <div id="Sign In" class="w3-container auth">
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b class="w3-left">Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
-            required />
-          <label><b class="w3-left">Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-            Login
-          </button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-          Remember me
-        </div>
-      </form>
-    </div>
-
-    <div id="Sign Up" class="w3-container auth" style="display: none">
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b class="w3-left">Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
-            required />
-          <label><b class="w3-left">Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-            Sign Up
-          </button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-          I accept the Privacy Policy.
-        </div>
-      </form>
-    </div>
-
-    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-      <span class="w3-right w3-padding">Forgot <a href="#">password?</a></span>
+    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with"
+      data-shape="rectangular" data-logo_alignment="left">
     </div>
   </div>
+
+
+  <div id="Sign In" class="w3-container auth">
+    <form class="w3-container" action="/action_page.php">
+      <div class="w3-section">
+        <label><b class="w3-left">Username</b></label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+          required />
+        <label><b class="w3-left">Password</b></label>
+        <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
+        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
+          Login
+        </button>
+        <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+        Remember me
+      </div>
+    </form>
+  </div>
+
+  <div id="Sign Up" class="w3-container auth" style="display: none">
+    <form class="w3-container" action="/action_page.php">
+      <div class="w3-section">
+        <label><b class="w3-left">Username</b></label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+          required />
+        <label><b class="w3-left">Password</b></label>
+        <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required />
+        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
+          Sign Up
+        </button>
+        <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+        I accept the Privacy Policy.
+      </div>
+    </form>
+  </div>
+
+  <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+    <span class="w3-right w3-padding">Forgot <a href="#">password?</a></span>
+  </div>
 </div>
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <script>
   function authFunc(evt, authName) {
@@ -75,5 +82,46 @@
     }
     document.getElementById(authName).style.display = "block";
     evt.currentTarget.className += " w3-red";
+  }
+
+  // Callback function for handling the Google credential response
+  function handleCredentialResponse(response) {
+    // Decode the JWT token to get user data
+    const responsePayload = decodeJwtResponse(response.credential);
+
+    // Log the payload to the console for inspection
+    console.log("ID: " + responsePayload.sub);
+    console.log("Full Name: " + responsePayload.name);
+    console.log("Image URL: " + responsePayload.picture);
+    console.log("Email: " + responsePayload.email);
+
+    // Display the user profile
+    document.getElementById('profile-name').innerText = responsePayload.name;
+    document.getElementById('profile-email').innerText = responsePayload.email;
+    document.getElementById('profile-pic').src = responsePayload.picture;
+
+    // Hide the sign-in button and show the profile card
+    document.querySelector('.g_id_signin').style.display = 'none';
+    document.getElementById('profile-container').style.display = 'block';
+  }
+
+  // Helper function to decode the JWT token
+  function decodeJwtResponse(token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+  }
+
+  // Function to sign out the user
+  function signOut() {
+    // Use Google's API to sign out
+    google.accounts.id.disableAutoSelect(); // Prevents One Tap from re-displaying immediately
+
+    // Reset the UI
+    document.querySelector('.g_id_signin').style.display = 'block';
+    document.getElementById('profile-container').style.display = 'none';
   }
 </script>
