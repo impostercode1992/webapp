@@ -1,6 +1,9 @@
 <button onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-right">
   Login
 </button>
+<button onclick="signOut().style.display='none'" class="w3-bar-item w3-button w3-right">
+  Log Out
+</button>
 
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-card-4" style="max-width: 420px">
@@ -102,7 +105,7 @@
     // Hide the sign-in button and show the profile card
     document.getElementById('id01').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
-    document.getElementById('profile-container').style.display = 'block';
+    document.getElementById('authComp').style.display = 'block';
   }
 
   // Helper function to decode the JWT token
@@ -122,6 +125,6 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
-    document.getElementById('profile-container').style.display = 'none';
+    document.getElementById('authComp').style.display = 'none';
   }
 </script>
