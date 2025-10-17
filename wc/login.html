@@ -117,8 +117,7 @@
     document.querySelector('.g_id_signin').style.display = 'none';
     document.getElementById('authShow').style.display = 'none';
     document.getElementById('authHide').style.display = 'block';
-    document.getElementById('Sign in').style.display = "none";
-    document.getElementById('Sign Out').style.display = "block";
+    authFunc(event, 'Sign Out')
   }
 
   // Helper function to decode the JWT token
@@ -140,6 +139,6 @@
     document.querySelector('.g_id_signin').style.display = 'block';
     document.getElementById('authHide').style.display = 'none';
     document.getElementById('authShow').style.display = 'block';
-    document.getElementById('Sign Out').style.display = "none";
+    authFunc(event, 'Sign In')
   }
 </script>
