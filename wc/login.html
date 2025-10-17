@@ -24,8 +24,7 @@
             <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
               <b>Sign Up</b></button>
           </div>
-          <button id="authHide" style="display: none;" class="w3-bar-item w3-button tablink"
-            onclick="authFunc(event,'Sign Out')">
+          <button id="authHide" style="display: none;" class="w3-bar-item w3-button tablink" onclick="signOut()">
             <b>Sign Out</b></button>
         </div>
         <div id="Sign In" class="w3-container form" style="display: block">
@@ -70,7 +69,6 @@
                   <p><strong>Email:</strong> <span id="profile-email"></span></p>
                 </div>
               </div>
-              <button onclick="signOut()" id="authComp" style="display: none">Log Out</button>
             </div>
           </form>
         </div>
@@ -119,6 +117,7 @@
     document.querySelector('.g_id_signin').style.display = 'none';
     document.getElementById('authShow').style.display = 'none';
     document.getElementById('authHide').style.display = 'block';
+    document.getElementsByClassName("Sign Out").style.display = 'block';
   }
 
   // Helper function to decode the JWT token
@@ -140,5 +139,6 @@
     document.querySelector('.g_id_signin').style.display = 'block';
     document.getElementById('authHide').style.display = 'none';
     document.getElementById('authShow').style.display = 'block';
+    document.getElementsByClassName("Sign In").style.display = 'block';
   }
 </script>
