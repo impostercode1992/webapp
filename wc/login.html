@@ -15,14 +15,15 @@
           data-shape="rectangular" data-logo_alignment="center">
         </div>
       </div>
-      <div id="authShow">
+
+      <div class="w3-container w3-center">
         <div class="w3-bar w3-white">
-          <button class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')">
-            <b>Sign In</b>
-          </button>
-          <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
-            <b>Sign Up</b>
-          </button>
+          <button id="authShow" class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')"
+            style="display: block;"><b>Sign In</b></button>
+          <button id="authShow" class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')"
+            style="display: block;"><b>Sign Up</b></button>
+          <button id="authHide" class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Out')"
+            style="display: none;"><b>Sign Out</b></button>
         </div>
         <div id="Sign In" class="w3-container form" style="display: block">
           <form class="w3-container" action="/action_page.php">
@@ -35,9 +36,9 @@
               <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
                 Login
               </button>
-              <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-              Remember me
+              <input class="w3-check" type="checkbox" checked="checked" /> Remember me
             </div>
+            <p>Forgot <a href="#">password?</a></p>
           </form>
         </div>
         <div id="Sign Up" class="w3-container form" style="display: none">
@@ -56,20 +57,21 @@
             </div>
           </form>
         </div>
-        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-          <span class="w3-right w3-padding">Forgot <a href="#">password?</a></span>
+        <div id="Sign Out" class="w3-container form" style="display: none">
+          <form class="w3-container" action="/action_page.php">
+            <div class="w3-section">
+              <h2><b>Welcome!</b></h2>
+              <div class="w3-container w3-margin">
+                <img id="profile-pic" src="" alt="Profile Picture" width="80" height="80">
+                <div>
+                  <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                  <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                </div>
+              </div>
+              <button onclick="signOut()" id="authComp" style="display: none">Log Out</button>
+            </div>
+          </form>
         </div>
-      </div>
-      <div id="authHide" class="w3-center" style="display: none">
-        <h2><b>Welcome!</b></h2>
-        <div class="w3-container w3-margin">
-          <img id="profile-pic" src="" alt="Profile Picture" width="80" height="80">
-          <div>
-            <p><strong>Name:</strong> <span id="profile-name"></span></p>
-            <p><strong>Email:</strong> <span id="profile-email"></span></p>
-          </div>
-        </div>
-        <button onclick="signOut()" id="authComp" style="display: none">Log Out</button>
       </div>
     </div>
   </div>
@@ -113,8 +115,8 @@
     // Hide the sign-in button and show the profile card
     document.getElementById('authModal').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
-    document.getElementById('authShow').style.display = 'block';
-    document.getElementById('authHide').style.display = 'none';
+    document.getElementById('authShow').style.display = 'none';
+    document.getElementById('authHide').style.display = 'block';
   }
 
   // Helper function to decode the JWT token
@@ -134,7 +136,7 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
-    document.getElementById('authHide').style.display = 'block';
-    document.getElementById('authShow').style.display = 'none';
+    document.getElementById('authHide').style.display = 'none';
+    document.getElementById('authShow').style.display = 'block';
   }
 </script>
