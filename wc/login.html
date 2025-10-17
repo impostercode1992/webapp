@@ -18,12 +18,14 @@
 
       <div class="w3-container w3-center">
         <div class="w3-bar w3-white">
-          <button id="authShow" class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')"
-            style="display: block;"><b>Sign In</b></button>
-          <button id="authShow" class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')"
-            style="display: block;"><b>Sign Up</b></button>
-          <button id="authHide" class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Out')"
-            style="display: none;"><b>Sign Out</b></button>
+          <div id="authShow" style="display: block;">
+            <button class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')">
+              <b>Sign In</b></button>
+            <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
+              <b>Sign Up</b></button>
+          </div>
+          <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Out')">
+            <b>Sign Out</b></button>
         </div>
         <div id="Sign In" class="w3-container form" style="display: block">
           <form class="w3-container" action="/action_page.php">
