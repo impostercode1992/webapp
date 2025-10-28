@@ -119,9 +119,8 @@
     // Hide the sign-in button and show the profile card
     document.getElementById('authModal').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
-    document.getElementById('authShow').style.display = 'none';
-    document.getElementById('authHide').style.display = 'block';
-    document.authFunc('Sign Out')
+    document.getElementById('Sign In').style.display = 'none';
+    document.getElementById('Sign Out').style.display = "block";
   }
 
   // Helper function to decode the JWT token
@@ -141,8 +140,7 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
-    document.getElementById('authHide').style.display = 'none';
-    document.getElementById('authShow').style.display = 'block';
-    document.authFunc('Sign In')
+    document.getElementById('Sign In').style.display = 'block';
+    document.getElementById('Sign Out').style.display = "none";
   }
 </script>
