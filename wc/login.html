@@ -7,8 +7,6 @@
     <div id="g_id_onload" data-client_id="53470530043-5gvhfeap2r8e2vjdjbjl82q22u75pq5k.apps.googleusercontent.com"
       data-callback="handleCredentialResponse" data-auto_prompt="false">
     </div>
-
-
     <div class="w3-container w3-content" style="width: 90%;">
 
       <div class="w3-container w3-center">
@@ -52,7 +50,7 @@
             </form>
           </div>
 
-          <div class="w3-section w3-border-top" id="dSign In" class="form" style="display: block">
+          <div class="w3-section w3-border-top" id="dSign In" style="display: block">
             <div class="w3-section">
               <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
                 data-text="signin_with" data-shape="rectangular" data-logo_alignment="center">
@@ -65,28 +63,23 @@
             </div>
           </div>
 
-          <div id="Sign Out" class="form" style="display: none">
-            <form class="w3-container" action="/action_page.php">
-              <div class="w3-section">
-                <div class="w3-container w3-margin">
-                  <img id="profile-pic" src="" alt="Profile Picture" width="80" height="80">
-                  <div>
-                    <p><strong>Name:</strong> <span id="profile-name"></span></p>
-                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
-                    <button class="w3-bar-item w3-button" onclick="signOut()">
-                      <b>Sign Out</b></button>
-                  </div>
-                </div>
+          <div class="w3-section" id="Sign Out" class="form" style="display: none">
+            <div class="w3-container w3-margin">
+              <img id="profile-pic" src="" alt="Profile Picture" width="80" height="80">
+              <div>
+                <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <button class="w3-bar-item w3-button" onclick="signOut()">
+                  <b>Sign Out</b></button>
               </div>
-            </form>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
