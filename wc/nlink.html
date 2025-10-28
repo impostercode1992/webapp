@@ -1,83 +1,147 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-
-
-
-<div id="authShow" class="w3-container w3-center">
-        <div class="w3-bar w3-white">
-                <button class="w3-bar-item w3-button tablink w3-red" onclick="authFunc(event,'Sign In')">
-                        <b>Sign In</b>
-                </button>
-                <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Up')">
-                        <b>Sign Up</b>
-                </button>
-                <button class="w3-bar-item w3-button tablink" onclick="authFunc(event,'Sign Out')">
-                        <b>Sign Out</b>
-                </button>
-        </div>
-        <div id="Sign In" class="w3-container form" style="display: block">
-                <form class="w3-container" action="/action_page.php">
-                        <div class="w3-section">
-                                <label><b class="w3-left">Username</b></label>
-                                <input class="w3-input w3-border w3-margin-bottom" type="text"
-                                        placeholder="Enter Username" name="usrname" required />
-                                <label><b class="w3-left">Password</b></label>
-                                <input class="w3-input w3-border" type="password" placeholder="Enter Password"
-                                        name="psw" required />
-                                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-                                        Login
-                                </button>
-                                <input class="w3-check" type="checkbox" checked="checked" /> Remember me
-                        </div>
-                        <p>Forgot <a href="#">password?</a></p>
-                </form>
-        </div>
-        <div id="Sign Up" class="w3-container form" style="display: none">
-                <form class="w3-container" action="/action_page.php">
-                        <div class="w3-section">
-                                <label><b class="w3-left">Username</b></label>
-                                <input class="w3-input w3-border w3-margin-bottom" type="text"
-                                        placeholder="Enter Username" name="usrname" required />
-                                <label><b class="w3-left">Password</b></label>
-                                <input class="w3-input w3-border" type="password" placeholder="Enter Password"
-                                        name="psw" required />
-                                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
-                                        Sign Up
-                                </button>
-                                <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
-                                I accept the Privacy Policy.
-                        </div>
-                </form>
-        </div>
-        <div id="Sign Out" class="w3-container form" style="display: none">
-                <form class="w3-container" action="/action_page.php">
-                        <div class="w3-section">
-                                <h2><b>Welcome!</b></h2>
-                                <div class="w3-container w3-margin">
-                                        <img id="profile-pic" src="" alt="Profile Picture" width="80" height="80">
-                                        <div>
-                                                <p><strong>Name:</strong> <span id="profile-name"></span></p>
-                                                <p><strong>Email:</strong> <span id="profile-email"></span></p>
-                                        </div>
-                                </div>
-                                <button onclick="signOut()" id="authComp" style="display: none">Log Out</button>
-                        </div>
-                </form>
-        </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div id="g_id_onload" data-client_id="53470530043-5gvhfeap2r8e2vjdjbjl82q22u75pq5k.apps.googleusercontent.com"
+        data-callback="handleCredentialResponse" data-auto_prompt="false">
 </div>
 
 
+<div class="w3-container w3-content" style="width: 90%;">
+
+        <div class="w3-container w3-center">
+                <h3><b>Welcome Back!</b></h3>
+
+                <div class="w3-section">
+                        <div id="Sign In" class="form" style="display: block">
+                                <form action="/action_page.php">
+                                        <input class="w3-input w3-border w3-margin-bottom" type="text"
+                                                placeholder="Username" name="usrname" required />
+                                        <input class="w3-input w3-border w3-margin-bottom" type="password"
+                                                placeholder="Password" name="psw" required />
+                                        <input class="w3-check" type="checkbox" checked="checked" /> Remember me
+                                        <button class="w3-button w3-block w3-green w3-section"
+                                                type="submit">Login</button>
+                                        Forgot <a href="#">password?</a>
+                                        <button class="w3-bar-item w3-button tablink" onclick="authFunc('Sign Up')">
+                                                <b>Sign Up</b></button>
+                                </form>
+                        </div>
+                        <div id="Sign Up" class="form" style="display: none">
+                                <form action="/action_page.php">
+                                        <input class="w3-input w3-border w3-margin-bottom" type="text"
+                                                placeholder="Username" name="usrname" required />
+                                        <input class="w3-input w3-border w3-margin-bottom" type="email"
+                                                placeholder="Email" name="email" required />
+                                        <input class="w3-input w3-border w3-margin-bottom" type="tel"
+                                                placeholder="Phone Number" name="tel" required />
+                                        <input class="w3-input w3-border w3-margin-bottom" type="password"
+                                                placeholder="Password" name="psw" required />
+                                        <input class="w3-input w3-border w3-margin-bottom" type="password"
+                                                placeholder="Confirm Password" name="psw" required />
+                                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">
+                                                Sign Up
+                                        </button>
+                                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+                                        I accept the Privacy Policy.
+                                        <button class="w3-bar-item w3-button" onclick="authFunc('Sign In')">
+                                                <b>Sign In</b></button>
+                                </form>
+                        </div>
+
+                        <div class="w3-section w3-border-top">
+                                <div class="w3-section">
+                                        <div class="g_id_signin" data-type="standard" data-size="large"
+                                                data-theme="outline" data-text="signin_with" data-shape="rectangular"
+                                                data-logo_alignment="center">
+                                        </div>
+                                        <button class="w3-section w3-round w3-button w3-block w3-white w3-border">
+                                                <i class="w3-xlarge fa fa-github"></i> Continue with GitHub</button>
+                                        <button class="w3-button w3-round w3-block w3-white w3-border ">
+                                                <i class="w3-xlarge fa fa-linkedin"></i> Continue with LinkedIn</button>
+
+                                </div>
+                        </div>
+
+                        <div id="Sign Out" class="form" style="display: none">
+                                <form class="w3-container" action="/action_page.php">
+                                        <div class="w3-section">
+                                                <div class="w3-container w3-margin">
+                                                        <img id="profile-pic" src="" alt="Profile Picture" width="80"
+                                                                height="80">
+                                                        <div>
+                                                                <p><strong>Name:</strong> <span
+                                                                                id="profile-name"></span></p>
+                                                                <p><strong>Email:</strong> <span
+                                                                                id="profile-email"></span></p>
+                                                                <button class="w3-bar-item w3-button"
+                                                                        onclick="signOut()">
+                                                                        <b>Sign Out</b></button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</div>
+</div>
+
+
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
 <script>
-        function authFunc(evt, authName) {
-                var i, x, tablinks;
+        function authFunc(authName) {
+                var i;
                 x = document.getElementsByClassName("form");
                 for (i = 0; i < x.length; i++) {
                         x[i].style.display = "none";
                 }
-                tablinks = document.getElementsByClassName("tablink");
-                for (i = 0; i < x.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-                }
                 document.getElementById(authName).style.display = "block";
-                evt.currentTarget.className += " w3-red";
+        }
+
+        // Callback function for handling the Google credential response
+        function handleCredentialResponse(response) {
+                // Decode the JWT token to get user data
+                const responsePayload = decodeJwtResponse(response.credential);
+
+                // Log the payload to the console for inspection
+                console.log("ID: " + responsePayload.sub);
+                console.log("Full Name: " + responsePayload.name);
+                console.log("Image URL: " + responsePayload.picture);
+                console.log("Email: " + responsePayload.email);
+
+                // Display the user profile
+                document.getElementById('profile-name').innerText = responsePayload.name;
+                document.getElementById('profile-email').innerText = responsePayload.email;
+                document.getElementById('profile-pic').src = responsePayload.picture;
+
+                // Hide the sign-in button and show the profile card
+                document.getElementById('authModal').style.display = 'none';
+                document.querySelector('.g_id_signin').style.display = 'none';
+                document.getElementById('authShow').style.display = 'none';
+                document.getElementById('authHide').style.display = 'block';
+                authFunc(event, 'Sign Out')
+        }
+
+        // Helper function to decode the JWT token
+        function decodeJwtResponse(token) {
+                let base64Url = token.split('.')[1];
+                let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                return JSON.parse(jsonPayload);
+        }
+
+        // Function to sign out the user
+        function signOut() {
+                // Use Google's API to sign out
+                google.accounts.id.disableAutoSelect(); // Prevents One Tap from re-displaying immediately
+
+                // Reset the UI
+                document.querySelector('.g_id_signin').style.display = 'block';
+                document.getElementById('authHide').style.display = 'none';
+                document.getElementById('authShow').style.display = 'block';
+                authFunc(event, 'Sign In')
         }
 </script>
