@@ -52,7 +52,7 @@
             </form>
           </div>
 
-          <div class="w3-section w3-border-top">
+          <div class="w3-section w3-border-top" id="dSign In" class="form" style="display: block">
             <div class="w3-section">
               <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
                 data-text="signin_with" data-shape="rectangular" data-logo_alignment="center">
@@ -120,6 +120,7 @@
     document.getElementById('authModal').style.display = 'none';
     document.querySelector('.g_id_signin').style.display = 'none';
     document.getElementById('Sign In').style.display = 'none';
+    document.getElementById('dSign In').style.display = 'none';
     document.getElementById('Sign Out').style.display = "block";
   }
 
@@ -140,6 +141,7 @@
 
     // Reset the UI
     document.querySelector('.g_id_signin').style.display = 'block';
+    document.getElementById('dSign In').style.display = 'block';
     document.getElementById('Sign In').style.display = 'block';
     document.getElementById('Sign Out').style.display = "none";
   }
