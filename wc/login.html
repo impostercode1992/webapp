@@ -1,5 +1,15 @@
-<button onclick="document.getElementById('authModal').style.display='block'"
-  class="w3-bar-item w3-button w3-right">Account</button>
+<?php
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        // User not logged in, redirect to login page
+        <button onclick="document.getElementById('authModal').style.display='block'"
+        class="w3-bar-item w3-button w3-right">Account</button>;
+        exit;
+    }
+    // User is logged in, display protected content
+    echo "Welcome, " . $_SESSION['profile-name'];
+    ?>
+
 <div id="authModal" class="w3-modal">
   <div class="w3-modal-content w3-card-4" style="max-width: 420px">
     <span onclick="document.getElementById('authModal').style.display='none'"
