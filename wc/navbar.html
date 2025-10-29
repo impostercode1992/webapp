@@ -13,7 +13,7 @@
             session_start();
             if (!isset($_SESSION['user_id'])) {
                 // User not logged in, redirect to login page
-                header("login.html");
+                header("wc/login.html");
                 exit;
             }
             // User is logged in, display protected content
